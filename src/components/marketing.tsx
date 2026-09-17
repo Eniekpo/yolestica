@@ -4,7 +4,6 @@ import {
   ArrowUpRight,
   Check,
   BookOpen,
-  ChevronRight,
 } from "lucide-react";
 import { services, processSteps } from "@/content/services";
 export function PageHero({
@@ -19,11 +18,6 @@ export function PageHero({
   return (
     <section className="page-hero">
       <div className="site-container">
-        <div className="breadcrumb">
-          <Link href="/">Home</Link>
-          <ChevronRight size={12} />
-          <span>{label}</span>
-        </div>
         <div className="eyebrow">{label}</div>
         <h1>{title}</h1>
         <p>{description}</p>
