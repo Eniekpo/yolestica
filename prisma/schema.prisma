@@ -1,0 +1,131 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "postgresql"
+  url = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+enum Role {
+  CLIENT
+  ADMIN
+}
+enum Service {
+  WEB
+  DATA
+  TUTORIALS
+  AUTOMATION
+  CUSTOMER_SUPPORT
+  IT_SUPPORT
+  CONTENT
+  DESIGN
+}
+enum InquiryStatus {
+  NEW
+  IN_PROGRESS
+  WAITING_ON_CLIENT
+  CLOSED
+}
+enum BlogCategory {
+  WEB
+  DATA
+  TUTORIALS
+  AUTOMATION
+  CUSTOMER_SUPPORT
+  IT_SUPPORT
+  CONTENT
+  DESIGN
+  TECH_TIPS
+}
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+}
+model User {
+  id String @id @default(uuid()) @db.Uuid
+  name String
+  email String @unique
+  passwordHash String
+  company String?
+  phone String?
+  role Role @default(CLIENT)
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+  sessions Session[]
+  resets PasswordResetToken[]
+  inquiries Inquiry[]
+  notes InquiryNote[]
+}
+model Session {
+  id String @id @default(uuid()) @db.Uuid
+  tokenHash String @unique
+  userId String @db.Uuid
+  user User @relation(fields:[userId], references:[id], onDelete:Cascade)
+  expiresAt DateTime @db.Timestamptz(3)
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  @@index([userId])
+  @@index([expiresAt])
+}
+model PasswordResetToken {
+  id String @id @default(uuid()) @db.Uuid
+  tokenHash String @unique
+  userId String @db.Uuid
+  user User @relation(fields:[userId], references:[id], onDelete:Cascade)
+  expiresAt DateTime @db.Timestamptz(3)
+  usedAt DateTime? @db.Timestamptz(3)
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  @@index([userId])
+  @@index([expiresAt])
+}
+model Inquiry {
+  id String @id @default(uuid()) @db.Uuid
+  userId String? @db.Uuid
+  user User? @relation(fields:[userId], references:[id], onDelete:SetNull)
+  name String
+  email String
+  phone String?
+  service Service
+  message String
+  status InquiryStatus @default(NEW)
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+  notes InquiryNote[]
+  @@index([userId,createdAt])
+  @@index([status,createdAt])
+  @@index([email])
+  @@index([createdAt])
+}
+model InquiryNote {
+  id String @id @default(uuid()) @db.Uuid
+  inquiryId String @db.Uuid
+  inquiry Inquiry @relation(fields:[inquiryId], references:[id], onDelete:Cascade)
+  authorId String @db.Uuid
+  author User @relation(fields:[authorId], references:[id], onDelete:Restrict)
+  body String
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  @@index([inquiryId,createdAt])
+}
+model BlogPost {
+  id String @id @default(uuid()) @db.Uuid
+  slug String @unique
+  title String
+  excerpt String
+  bodyMarkdown String
+  category BlogCategory
+  heroImage String?
+  heroAlt String?
+  authorName String
+  status PostStatus @default(DRAFT)
+  publishedAt DateTime? @db.Timestamptz(3)
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+  @@index([status,publishedAt])
+  @@index([category])
+}
+model RateLimitBucket {
+  key String @id
+  count Int @default(1)
+  windowEndsAt DateTime @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+  @@index([windowEndsAt])
+}

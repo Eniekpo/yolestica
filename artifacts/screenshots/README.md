@@ -1,0 +1,35 @@
+# Verification screenshots
+
+Captured from the running production build. Account names, emails and the published article shown here are temporary test fixtures, not real clients or published business content.
+
+Desktop public pages, mobile layouts, client account states and administrator workflows are included.
+
+- [About](about.png)
+- [Admin Client](admin-client.png)
+- [Admin Inquiries](admin-inquiries.png)
+- [Admin](admin.png)
+- [Blog Article](blog-article.png)
+- [Blog Mobile](blog-mobile.png)
+- [Blog With Fixture](blog-with-fixture.png)
+- [Blog](blog.png)
+- [Contact Mobile](contact-mobile.png)
+- [Contact Success](contact-success.png)
+- [Contact](contact.png)
+- [Dashboard Empty](dashboard-empty.png)
+- [Dashboard](dashboard.png)
+- [Forgot Password](forgot-password.png)
+- [Home Desktop](home-desktop.png)
+- [Home Mobile](home-mobile.png)
+- [Login](login.png)
+- [New Request](new-request.png)
+- [Pricing Mobile](pricing-mobile.png)
+- [Pricing](pricing.png)
+- [Privacy](privacy.png)
+- [Profile](profile.png)
+- [Reset Password Valid](reset-password-valid.png)
+- [Reset Password](reset-password.png)
+- [Services Mobile](services-mobile.png)
+- [Services](services.png)
+- [Signup Mobile](signup-mobile.png)
+- [Signup](signup.png)
+- [Terms](terms.png)

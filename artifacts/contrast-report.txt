@@ -1,0 +1,36 @@
+
+> yoletech@1.0.0 contrast
+> node --experimental-strip-types scripts/check-contrast.ts
+
+PASS ink / white: 16.54:1
+PASS panel / white: 11.66:1
+PASS body / white: 6.17:1
+PASS brand / white: 4.89:1
+PASS ink / mist: 15.84:1
+PASS panel / mist: 11.17:1
+PASS body / mist: 5.90:1
+PASS brand / mist: 4.68:1
+PASS ink / pale: 15.69:1
+PASS panel / pale: 11.07:1
+PASS body / pale: 5.85:1
+PASS brand / pale: 4.64:1
+PASS white / brand: 4.89:1
+PASS white / deep: 9.53:1
+PASS white / ink: 16.54:1
+PASS mist / ink: 15.84:1
+PASS muted / ink: 4.54:1
+PASS white / panel: 11.66:1
+PASS ink / lime: 7.96:1
+PASS ink / highlight: 5.15:1
+PASS success / white: 6.07:1
+PASS danger / white: 5.26:1
+PASS info / white: 5.77:1
+PASS deep / pale: 9.04:1
+PASS UI/focus info / white: 5.77:1
+PASS UI/focus info / mist: 5.53:1
+PASS UI/focus info / pale: 5.48:1
+PASS UI/focus white / ink: 16.54:1
+PASS UI/focus white / deep: 9.53:1
+PASS UI/focus brand / white: 4.89:1
+PASS UI/focus body / white: 6.17:1
+PASS UI/focus muted / ink: 4.54:1
