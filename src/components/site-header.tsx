@@ -51,7 +51,7 @@ export function SiteHeader() {
             Sign in
           </Link>
           <Link href="/signup" className="btn btn-primary btn-sm">
-            Create account
+            Get Started
           </Link>
         </div>
         <button
@@ -86,7 +86,7 @@ export function SiteHeader() {
               Sign in
             </Link>
             <Link href="/signup" onClick={() => setOpen(false)}>
-              Create account
+              Get Started
             </Link>
           </div>
         </nav>

@@ -65,19 +65,21 @@ export function Hero() {
           aria-roledescription="slide"
           aria-label={`${index + 1} of 8`}
         >
-          <div>
+          <div className="hero-copy">
             <div className="eyebrow">Ideas into impact. That’s Yoletech.</div>
-            <h1 data-long={s.key === "TUTORIALS"}>{s.name}</h1>
-            <p>{s.caption}</p>
+            <h1 className="hero-heading">
+              Your next step starts with a conversation.
+            </h1>
+            <p>
+              An idea, a project or a technical challenge — tell us what’s on
+              your mind. We’ll work out the next step together.
+            </p>
             <div className="hero-actions">
-              <Link
-                href={`/contact?service=${s.key}`}
-                className="btn btn-primary"
-              >
-                Start your project <ArrowUpRight size={17} />
+              <Link href="/contact" className="btn btn-primary">
+                Get Started <ArrowUpRight size={17} />
               </Link>
-              <Link href={`/services#${s.slug}`} className="btn btn-secondary">
-                Explore this service <ArrowRight size={15} />
+              <Link href="/services" className="btn btn-secondary">
+                Explore services <ArrowRight size={15} />
               </Link>
             </div>
             <div className="hero-proof">
