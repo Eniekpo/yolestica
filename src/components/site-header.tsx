@@ -46,6 +46,14 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
+        <div className="header-actions">
+          <Link href="/login" className="text-link">
+            Sign in
+          </Link>
+          <Link href="/signup" className="btn btn-primary btn-sm">
+            Create account
+          </Link>
+        </div>
         <button
           ref={toggle}
           className="mobile-toggle"
@@ -73,6 +81,14 @@ export function SiteHeader() {
               {name}
             </Link>
           ))}
+          <div className="mobile-auth">
+            <Link href="/login" onClick={() => setOpen(false)}>
+              Sign in
+            </Link>
+            <Link href="/signup" onClick={() => setOpen(false)}>
+              Create account
+            </Link>
+          </div>
         </nav>
       )}
     </header>

@@ -71,12 +71,18 @@ export function SiteFooter() {
             </ul>
           </div>
           <div>
-            <h3>Let’s talk</h3>
+            <h3>Client portal</h3>
             <p>
-              Have an idea or a challenge?
-              <br />
-              We’d love to hear about it.
+              Access your requests, profile and project updates.
             </p>
+            <div className="mt-4 flex flex-col gap-2">
+              <Link href="/login" className="text-link">
+                Sign in
+              </Link>
+              <Link href="/signup" className="text-link">
+                Create an account
+              </Link>
+            </div>
             <a
               className="mt-4 flex items-center gap-2"
               href="mailto:yoletech@yolestica.com"
