@@ -32,6 +32,7 @@ export default async function Blog({
         description="Clear explanations, practical guides and thoughtful perspectives to help you build, learn and work smarter."
       />
       <section className="site-container section">
+        <h2 className="sr-only">Articles</h2>
         <nav className="filters" aria-label="Blog categories">
           <Link className="filter-link" href="/blog" aria-current={!selected}>
             All articles

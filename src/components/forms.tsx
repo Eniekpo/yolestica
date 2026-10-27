@@ -424,7 +424,7 @@ export function ProfileForm({
 }) {
   const { result, busy, submit } = useForm("/api/profile");
   return (
-    <form onSubmit={submit}>
+    <form onSubmit={submit} aria-label="Profile settings">
       <Feedback result={result} />
       <Field
         name="name"
@@ -467,7 +467,7 @@ export function ProfileForm({
 export function LogoutButton() {
   const { submit, busy, result } = useForm("/api/auth/logout");
   return (
-    <form onSubmit={submit}>
+    <form onSubmit={submit} aria-label="Sign out">
       <button disabled={busy} type="submit">
         {busy ? "Signing out…" : "Sign out"}
       </button>
@@ -484,11 +484,19 @@ export function FollowUpForm({ id, status }: { id: string; status: string }) {
     "note",
   ]);
   return (
-    <form onSubmit={submit} className="mt-5">
+    <form onSubmit={submit} className="mt-5" aria-label="Inquiry follow-up">
       <Feedback result={result} />
       <div className="field">
         <label htmlFor={`status-${id}`}>Request status</label>
-        <select id={`status-${id}`} name="status" defaultValue={status}>
+        <select
+          id={`status-${id}`}
+          name="status"
+          defaultValue={status}
+          aria-invalid={!!result.fields?.status}
+          aria-describedby={
+            result.fields?.status ? `status-error-${id}` : undefined
+          }
+        >
           {["NEW", "IN_PROGRESS", "WAITING_ON_CLIENT", "CLOSED"].map((s) => (
             <option key={s} value={s}>
               {s.replaceAll("_", " ")}

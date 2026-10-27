@@ -63,27 +63,24 @@ export function Hero() {
           className="hero-main"
           role="group"
           aria-roledescription="slide"
-          aria-label={`${index + 1} of 8`}
+          aria-label={`${index + 1} of 8: ${s.name}`}
         >
           <div className="hero-copy">
             <div className="eyebrow">Ideas into impact. That’s Yoletech.</div>
-            <h1 className="hero-heading">
-              Your next step starts with a conversation.
+            <h1 className="hero-heading" data-long={s.name.length > 30}>
+              {s.name}
             </h1>
-            <p>
-              An idea, a project or a technical challenge — tell us what’s on
-              your mind. We’ll work out the next step together.
-            </p>
+            <p>{s.caption}</p>
             <div className="hero-actions">
-              <Link href="/contact" className="btn btn-primary">
-                Get Started <ArrowUpRight size={17} />
+              <Link href={`/services#${s.slug}`} className="btn btn-primary">
+                Explore this service <ArrowUpRight size={17} aria-hidden="true" />
               </Link>
               <Link href="/services" className="btn btn-secondary">
-                Explore services <ArrowRight size={15} />
+                All services <ArrowRight size={15} aria-hidden="true" />
               </Link>
             </div>
             <div className="hero-proof">
-              <CircleCheck size={15} className="text-brand" />
+              <CircleCheck size={15} className="text-brand" aria-hidden="true" />
               Built around your goals. Delivered with care.
             </div>
           </div>
@@ -103,14 +100,14 @@ export function Hero() {
               aria-label="Previous service"
               onClick={() => go(index - 1)}
             >
-              <ChevronLeft size={16} />
+              <ChevronLeft size={16} aria-hidden="true" />
             </button>
             <button
               className="circle-button"
               aria-label="Next service"
               onClick={() => go(index + 1)}
             >
-              <ChevronRight size={16} />
+              <ChevronRight size={16} aria-hidden="true" />
             </button>
             <span className="ml-3 text-xs text-body" aria-hidden="true">
               0{index + 1}
@@ -139,7 +136,11 @@ export function Hero() {
                 } else setPaused(!paused);
               }}
             >
-              {paused || reduced ? <Play size={13} /> : <Pause size={13} />}
+              {paused || reduced ? (
+                <Play size={13} aria-hidden="true" />
+              ) : (
+                <Pause size={13} aria-hidden="true" />
+              )}
             </button>
           </div>
           <span className="hero-index text-[10px] uppercase tracking-widest">

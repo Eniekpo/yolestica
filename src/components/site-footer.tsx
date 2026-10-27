@@ -8,7 +8,7 @@ import {
   Mail,
 } from "lucide-react";
 import { Logo } from "./site-header";
-import { navLinks, services, socials, whatsapp } from "@/content/services";
+import { navLinks, services, socials } from "@/content/services";
 const socialIcons = [Linkedin, null, Facebook, Instagram, Music2, Youtube];
 export function SocialLinks() {
   return (
@@ -24,7 +24,7 @@ export function SocialLinks() {
             rel="noopener noreferrer"
           >
             {Icon ? (
-              <Icon size={14} />
+              <Icon size={14} aria-hidden="true" />
             ) : (
               <span aria-hidden="true" className="text-xs font-semibold">
                 𝕏
@@ -51,7 +51,7 @@ export function SiteFooter() {
             <SocialLinks />
           </div>
           <div>
-            <h3>Explore</h3>
+            <h2>Explore</h2>
             <ul>
               {navLinks.map(([name, href]) => (
                 <li key={href}>
@@ -61,7 +61,7 @@ export function SiteFooter() {
             </ul>
           </div>
           <div>
-            <h3>What we do</h3>
+            <h2>What we do</h2>
             <ul>
               {services.map((s) => (
                 <li key={s.key}>
@@ -71,7 +71,7 @@ export function SiteFooter() {
             </ul>
           </div>
           <div>
-            <h3>Client portal</h3>
+            <h2>Client portal</h2>
             <p>
               Access your requests, profile and project updates.
             </p>
@@ -87,7 +87,7 @@ export function SiteFooter() {
               className="mt-4 flex items-center gap-2"
               href="mailto:yoletech@yolestica.com"
             >
-              <Mail size={13} />
+              <Mail size={13} aria-hidden="true" />
               yoletech@yolestica.com
             </a>
           </div>
