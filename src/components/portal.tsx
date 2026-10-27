@@ -33,14 +33,14 @@ export function InquiryList({ inquiries }: { inquiries: Inquiry[] }) {
   if (!inquiries.length)
     return (
       <div className="empty-state mt-8">
-        <MessageSquare className="mx-auto text-brand" />
+        <MessageSquare className="mx-auto text-brand" aria-hidden="true" />
         <h3>Your next project can start here.</h3>
         <p>
           You haven’t submitted a request yet. Tell us what you’d like to
           achieve.
         </p>
         <Link className="text-link" href="/dashboard/requests/new">
-          Submit your first request <ArrowRight size={15} />
+          Submit your first request <ArrowRight size={15} aria-hidden="true" />
         </Link>
       </div>
     );
@@ -49,9 +49,9 @@ export function InquiryList({ inquiries }: { inquiries: Inquiry[] }) {
       {inquiries.map((q) => (
         <article className="request-card" key={q.id}>
           <div className="flex justify-between gap-4 flex-wrap">
-            <h2 className="text-lg">
+            <h3 className="text-lg font-heading font-semibold text-ink">
               {services.find((s) => s.key === q.service)?.name}
-            </h2>
+            </h3>
             <StatusBadge status={q.status} />
           </div>
           <time className="text-xs" dateTime={q.createdAt.toISOString()}>

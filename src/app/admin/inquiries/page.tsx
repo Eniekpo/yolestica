@@ -48,7 +48,11 @@ export default async function AdminInquiries({
       <h1>Keep every conversation moving.</h1>
       <p>Guest inquiries and client requests, with private follow-up notes.</p>
       <form className="flex flex-wrap gap-3 my-7" role="search">
+        <label htmlFor="admin-inquiry-search" className="sr-only">
+          Search inquiries
+        </label>
         <input
+          id="admin-inquiry-search"
           name="q"
           className="search-input max-w-sm"
           defaultValue={q}
@@ -56,7 +60,11 @@ export default async function AdminInquiries({
           aria-label="Search inquiries"
           maxLength={100}
         />
+        <label htmlFor="admin-inquiry-status" className="sr-only">
+          Filter by status
+        </label>
         <select
+          id="admin-inquiry-status"
           name="status"
           defaultValue={status || ""}
           aria-label="Filter by status"
@@ -67,7 +75,9 @@ export default async function AdminInquiries({
             <option key={s}>{s}</option>
           ))}
         </select>
-        <button className="btn btn-secondary">Apply filters</button>
+        <button className="btn btn-secondary" type="submit">
+          Apply filters
+        </button>
       </form>
       {!inquiries.length && (
         <div className="empty-state">

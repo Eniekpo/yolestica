@@ -59,7 +59,11 @@ export default async function Admin({
         ))}
       </div>
       <form className="flex gap-3 mb-6" role="search">
+        <label htmlFor="admin-client-search" className="sr-only">
+          Search clients by name or email
+        </label>
         <input
+          id="admin-client-search"
           name="q"
           aria-label="Search clients by name or email"
           placeholder="Search name or email"
@@ -67,7 +71,9 @@ export default async function Admin({
           maxLength={100}
           className="search-input max-w-md"
         />
-        <button className="btn btn-secondary">Search</button>
+        <button className="btn btn-secondary" type="submit">
+          Search
+        </button>
       </form>
       <div className="table-wrap">
         <table>
