@@ -99,9 +99,11 @@ export default function Pricing() {
         </div>
         <div className="bg-pale rounded-xl p-8 mt-10 flex flex-wrap gap-6 justify-between items-center">
           <div className="flex gap-4">
-            <SlidersHorizontal className="text-brand shrink-0" />
+            <SlidersHorizontal className="text-brand shrink-0" aria-hidden="true" />
             <div>
-              <h3>Need a different kind of support?</h3>
+              <h2 className="text-xl font-heading font-semibold text-ink">
+                Need a different kind of support?
+              </h2>
               <p className="text-sm mt-2">
                 Tutorials, ongoing IT support, content and retainers — built
                 around your needs.
@@ -109,7 +111,7 @@ export default function Pricing() {
             </div>
           </div>
           <Link href="/contact" className="btn btn-primary">
-            Request a Custom Quote <ArrowUpRight size={15} />
+            Request a Custom Quote <ArrowUpRight size={15} aria-hidden="true" />
           </Link>
         </div>
       </section>

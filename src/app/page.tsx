@@ -60,14 +60,14 @@ export default async function Home() {
             <div className="giant-mark" aria-hidden="true">
               &lt; / &gt;
             </div>
-            <h3 className="text-2xl max-w-72 mt-4">
+            <p className="font-heading font-semibold text-2xl max-w-72 mt-4 text-ink">
               Technology works best
               <br />
               when people come first.
-            </h3>
+            </p>
             <div className="trust-note">
               <span className="icon-box !m-0 !w-9 !h-9 shrink-0">
-                <Check size={18} />
+                <Check size={18} aria-hidden="true" />
               </span>
               <span>
                 Your goals. A clear plan.

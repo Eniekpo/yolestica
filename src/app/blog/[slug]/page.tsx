@@ -63,7 +63,11 @@ export default async function Article({
               post.heroImage ||
               "/illustrations/services/full-stack-web-development.svg"
             }
-            alt={post.heroAlt || ""}
+            alt={
+              post.heroAlt?.trim()
+                ? post.heroAlt
+                : `Illustration for ${post.title}`
+            }
             width={750}
             height={470}
           />
